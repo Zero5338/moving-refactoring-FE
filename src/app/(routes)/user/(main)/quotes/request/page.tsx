@@ -1,26 +1,14 @@
 'use client';
 import QuoteRequestPage from '@/components/quoteRequest/QuoteRequestPage';
 import QuoteRequestSummaryPage from '@/components/quoteRequest/QuoteRequestSummaryPage';
-import { getQuoteRequest } from '@/services/quoteRequests';
-import { useQuery } from '@tanstack/react-query';
-import Loading from '@/app/loading';
+import useMyQuoteRequest from '@/hooks/useMyQuoteRequest';
 
 export default function Page() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['myQuoteRequest'],
-    queryFn: getQuoteRequest,
-  });
-
-  if (isLoading) {
-    return (
-      <div className='flex justify-center items-center w-full h-screen'>
-        <Loading />
-      </div>
-    );
-  }
+  const { ui, data } = useMyQuoteRequest();
+  if (ui) return ui; // 로딩 또는 에러 UI를 ui로부터 받는다
 
   return data?.isRequested ? (
-    <QuoteRequestSummaryPage data={data} /> // 요약 페이지
+    <QuoteRequestSummaryPage data={data} />
   ) : (
     <QuoteRequestPage />
   );
