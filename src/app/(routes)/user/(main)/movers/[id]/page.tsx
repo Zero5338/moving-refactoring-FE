@@ -194,7 +194,7 @@ export default function Page() {
   // 지정 견적 요청 핸들러
   const handleQuoteRequest = async (): Promise<void> => {
     if (!checkLoginStatus()) return;
-    if (!checkProfileStatus()) return;
+    // if (!checkProfileStatus()) return;
 
     try {
       const quoteResponse = await checkGeneralQuoteExists();

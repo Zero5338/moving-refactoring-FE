@@ -3,6 +3,7 @@
 import { useForm, type FieldValues, type FieldErrors } from 'react-hook-form';
 import { VALIDATION_MESSAGES, VALIDATION_PATTERN } from '../constants';
 import InputSection from '@/components/common/inputSection/molecules';
+import { useRouter } from 'next/navigation';
 import { useMoverSignIn, useUserSignIn } from '@/hooks/auth/useAuth';
 import CommonButton from '@/components/common/commonBtn/commonBtn';
 import { SignInData } from '@/services/auth/types';
@@ -21,6 +22,7 @@ export default function SignInFormGroup({
 }: {
   userType: UserType;
 }) {
+  const router = useRouter();
   const toast = useToaster();
   const userSignIn = useUserSignIn();
   const moverSignIn = useMoverSignIn();
@@ -40,6 +42,11 @@ export default function SignInFormGroup({
     mutate(data as SignInData, {
       onSuccess: () => {
         toast('info', '로그인 성공!');
+        if (userType === 'mover') {
+          router.push('/mover/profile');
+        } else {
+          router.push('user/main/movers');
+        }
       },
     });
   };

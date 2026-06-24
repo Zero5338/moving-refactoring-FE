@@ -12,16 +12,15 @@ export default function Page() {
         userType='mover'
         moveToPage='user/sign-in'
       />
-
       <FormGroupSection
         formType='signIn'
         userType='mover'
       />
+
       <TextUnderButton
         pageType='signIn'
         moveToPage='mover/sign-up'
       />
-
       <SnsLogin type='mover' />
     </AuthPageLayout>
   );

@@ -1,4 +1,5 @@
 import axiosInstance from '@/lib/axiosInstance';
+import axios from 'axios';
 
 export const getUploadUrl = async (filename: string) => {
   try {
@@ -20,7 +21,7 @@ export const uploadImageOnS3 = async ({
   url: string;
 }) => {
   try {
-    await axiosInstance.put(url, file, {
+    await axios.put(url, file, {
       headers: {
         'Content-Type': file.type,
       },
