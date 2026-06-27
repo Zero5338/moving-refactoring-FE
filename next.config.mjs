@@ -4,17 +4,17 @@ const nextConfig = {
     return [
       {
         source: "/api/auth/:path*",
-        destination: "http://localhost:8000/api/auth/:path*", // 백엔드 주소로 변경
+        destination: "http://localhost:8080/api/auth/:path*", // 백엔드 주소로 변경
       },
     ];
   },
   // reactStrictMode: false, // Strict Mode 비활성화
   images : {
-    domains: ['moving-app.site', 'd3h2ixicz4w2p.cloudfront.net'],
+    domains: ['moving-app.site', 'd15bip1fg1s64o.cloudfront.net'],
     remotePatterns : [
         {
             protocol : 'https',
-            hostname : 'd3h2ixicz4w2p.cloudfront.net',
+            hostname : 'd15bip1fg1s64o.cloudfront.net',
             port : '',
             pathname : '/**',
         }
