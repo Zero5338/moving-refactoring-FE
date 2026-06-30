@@ -45,7 +45,7 @@ export default function SignInFormGroup({
         if (userType === 'mover') {
           router.push('/mover/profile');
         } else {
-          router.push('user/main/movers');
+          router.push('/user/movers');
         }
       },
     });
